@@ -171,6 +171,7 @@ class HFDataLoader:
         if self.hf_repo:
             qrels_ds = load_dataset(
                 self.hf_repo_qrels,
+                "default",
                 keep_in_memory=self.keep_in_memory,
                 streaming=self.streaming,
             )[split]

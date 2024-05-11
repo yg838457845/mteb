@@ -31,7 +31,7 @@ class DenseRetrievalExactSearch:
     ):
         # Model is class that provides encode_corpus() and encode_queries()
         self.model = model
-        self.batch_size = batch_size
+        self.batch_size = batch_size if kwargs.get("batch_size", None) is None else kwargs.get("batch_size")
         self.score_functions = {"cos_sim": cos_sim, "dot": dot_score}
         self.score_function_desc = {
             "cos_sim": "Cosine Similarity",
